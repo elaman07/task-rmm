@@ -1,12 +1,32 @@
 <mat-toolbar>
   <span>Menu</span>
   <span class="flex-1"></span>
-  <button mat-icon-button>
+  <button mat-icon-button (click)="removeSelectedItems()">
     <mat-icon>remove</mat-icon>
   </button>
-  <button mat-icon-button>
+  <button mat-icon-button (click)="addItem()">
     <mat-icon>add</mat-icon>
   </button>
 </mat-toolbar>
 
-<!--Your code here-->
+<div *ngIf="randomItemList?.length" class="card-container">
+  <mat-card class="profile-card" *ngFor="let randomItem of randomItemList; let i = index"
+            (click)="selectItem(i)" [class.selected]="randomItem.selected">
+    <mat-card-header>
+      <div class="random-icon">
+        <mat-icon>{{ randomItem.icon }}</mat-icon>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-card-title>{{ randomItem.name }}</mat-card-title>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+
+
+
+
+

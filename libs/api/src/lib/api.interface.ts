@@ -1,4 +1,5 @@
 export interface ItemInterface {
+  selected?: boolean;
   id: string;
   name: string;
   icon: string;
